@@ -5,11 +5,21 @@ import { styles } from './styles';
 
 interface CustomButtonProps {
   title: string;
+  disabled?: boolean;
+  onPress?: () => void;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ title }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({
+  title,
+  disabled,
+  onPress,
+}) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={() => {}}>
+    <TouchableOpacity
+      style={styles.button}
+      onPress={onPress}
+      disabled={disabled}
+    >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );

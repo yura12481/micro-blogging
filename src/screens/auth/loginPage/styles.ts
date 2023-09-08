@@ -12,15 +12,7 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: 'center',
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#070707',
-    borderRadius: 5,
-    height: 50,
-    width: '90%',
-    marginVertical: 10,
-    paddingLeft: 15,
-  },
+
   registerContainer: {
     flexDirection: 'row',
     marginVertical: 10,

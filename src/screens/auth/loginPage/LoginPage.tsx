@@ -1,34 +1,27 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import CustomButton from '../../../components/customButton/CustomButton';
+import LoginForm from '../../../components/auth/loginForm/LoginForm';
+
+import { RootStackParams } from '../../../../App';
 
 import { styles } from './styles';
 
 const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Sign In</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={true}
-        value={password}
-        onChangeText={setPassword}
-      />
-      <CustomButton title="Sign In" />
+      <LoginForm />
       <View style={styles.registerContainer}>
         <Text style={styles.registerText}>or</Text>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('RegistrationPage')}
+        >
           <Text style={styles.registerLink}>Register</Text>
         </TouchableOpacity>
       </View>
