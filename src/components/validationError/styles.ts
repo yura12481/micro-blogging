@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   },
   errorMessage: {
     marginBottom: 3,
+    marginLeft: 2,
     fontSize: 14,
     fontWeight: 'bold',
     color: 'red',

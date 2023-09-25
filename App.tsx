@@ -4,11 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { User, onAuthStateChanged } from 'firebase/auth';
 
-import LoginPage from './src/screens/auth/loginPage/LoginPage';
 import RegistrationPage from './src/screens/auth/registrationPage/RegistrationPage';
 import HomePage from './src/screens/homePage/HomePage';
 
 import { FIREBASE_AUTH } from './FirebaseConfig';
+import LoginPage from './src/screens/auth/loginPage/LoginPage';
 
 export type RootStackParams = {
   LoginPage: undefined;

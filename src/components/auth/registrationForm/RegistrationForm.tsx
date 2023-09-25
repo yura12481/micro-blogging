@@ -30,17 +30,17 @@ const RegistrationForm: React.FC = () => {
   const [checkValidEmail, setCheckValidEmail] = useState<boolean>(false);
   const [checkValidPassword, setCheckValidPassword] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [currentValue, setCurrentValue] = useState<string>('author');
+  const [currentValue, setCurrentValue] = useState<string>('Author');
   const [loading, setLoading] = useState<boolean>(false);
 
   const items: IItems[] = [
     {
       label: 'Author',
-      value: 'author',
+      value: 'Author',
     },
     {
       label: 'Commentator',
-      value: 'commentator',
+      value: 'Commentator',
     },
   ];
 
