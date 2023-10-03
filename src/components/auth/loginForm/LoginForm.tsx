@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
-import { TextInput, Text, ActivityIndicator } from 'react-native';
+import React, { useState } from "react";
+import { TextInput, Text } from "react-native";
 
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  isValidEmail,
+  isValidPassword,
+} from "../../../utils/validationUtils/validationUtils";
+import useSignIn from "../../../utils/hooks/firebase/signInHook/useSignIn";
 
-import { isValidEmail, isValidPassword } from '../../../utils/validationUtils';
-import ValidationError from '../../validationError/ValidationError';
-import CustomButton from '../../customButton/CustomButton';
+import ValidationError from "../../validationError/ValidationError";
+import CustomButton from "../../customButton/CustomButton";
+import CustomActivityIndicator from "../../customActivityIndicator/CustomActivityIndicator";
 
-import { FIREBASE_AUTH } from '../../../../FirebaseConfig';
-
-import { styles } from './styles';
+import { styles } from "./styles";
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
   const [checkValidEmail, setCheckValidEmail] = useState<boolean>(false);
   const [checkValidPassword, setCheckValidPassword] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+
+  const { email, setEmail, password, setPassword, loading, signIn } =
+    useSignIn();
+
+  const { input } = styles;
 
   const handleCheckEmail = (value: string) => {
     setEmail(value);
@@ -28,33 +32,16 @@ const LoginForm: React.FC = () => {
     setCheckValidPassword(!isValidPassword(value));
   };
 
-  const auth = FIREBASE_AUTH;
-
-  const signIn = async () => {
-    setLoading(true);
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      if (!auth.currentUser?.emailVerified) {
-        alert('Please confirm your email!');
-      }
-    } catch (error: any) {
-      console.log(error);
-      alert('Sign in failed please write correct data.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <>
       <TextInput
-        style={styles.input}
+        style={input}
         placeholder="Email"
         onChangeText={(text) => handleCheckEmail(text)}
         value={email}
       />
       <TextInput
-        style={styles.input}
+        style={input}
         placeholder="Password"
         secureTextEntry={true}
         value={password}
@@ -66,7 +53,7 @@ const LoginForm: React.FC = () => {
         <Text></Text>
       )}
       {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
+        <CustomActivityIndicator />
       ) : checkValidEmail ||
         checkValidPassword ||
         !email.length ||

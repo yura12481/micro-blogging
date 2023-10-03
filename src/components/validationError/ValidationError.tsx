@@ -1,15 +1,16 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { styles } from './styles';
+import React from "react";
+import { Text, View } from "react-native";
 
-interface ValidationErrorProps {
-  text: string;
-}
+import { ValidationErrorProps } from "./types";
+
+import { styles } from "./styles";
 
 const ValidationError: React.FC<ValidationErrorProps> = ({ text }) => {
+  const { errorMessageContainer, errorMessage } = styles;
+
   return (
-    <View style={styles.errorMessageContainer}>
-      <Text style={styles.errorMessage}>{text}</Text>
+    <View style={errorMessageContainer}>
+      <Text style={errorMessage}>{text}</Text>
     </View>
   );
 };
