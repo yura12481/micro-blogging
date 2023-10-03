@@ -1,5 +1,4 @@
 When registering, we choose whether it will be an Author or Commentator account, if you choose an author, you can create posts and view comments, but you cannot comment, if you choose a commentator, you can view posts and comment on them, but you cannot create new posts.
-Screens below
 ![photo_9_2023-10-03_16-46-46](https://github.com/yura12481/micro-blogging/assets/114431551/58b7629b-1c27-4b9a-9224-58a549c5ac30)
 ![photo_8_2023-10-03_16-46-46](https://github.com/yura12481/micro-blogging/assets/114431551/5e43e080-8842-4769-8526-a863a576e8e6)
 ![photo_7_2023-10-03_16-46-46](https://github.com/yura12481/micro-blogging/assets/114431551/226a3ad7-ef52-4e13-af0e-bf25840b9648)
